@@ -40,7 +40,7 @@ async function loginAdmin() {
             window.location.href = "adminPanel.html";
         }
         else {
-            window.location.href = "admin.html";
+            document.getElementById("errorLogin").innerText = "Usuario Invalido";
         }
     }
 

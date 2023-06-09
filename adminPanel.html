@@ -9,6 +9,17 @@
 </head>
 <body>
 
+    <nav class="navbar bg-body-tertiary bg-warning">
+        <div class="container-fluid">
+          <a class="navbar-brand " href="#">
+            <img src="imgs/Lego_logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Lego Panel de administrador
+          </a>
+
+          <h6  class="nav-link cerrarSesion  text-danger" onclick="cerrarSesion();" >Cerrar Sesión</h6>
+        </div>
+      </nav>
+
     <h3 class="text-center m-4">Panel de administrador Lego store</h3>
 
     <a class="" href="adminUpload.html"><button class="d-block  m-auto  btn btn-dark" type="submit">Subir nuevo producto</button></a>
@@ -21,6 +32,7 @@
     </div>
 
 <script src="js/apiGet.js"></script>
+<script src="js/controller/cerrarSesion.js"></script>
     
 </body>
 </html>
