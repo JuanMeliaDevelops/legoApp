@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/lego_logo.png" type="image/x-icon">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -31,11 +32,11 @@
 
     <form class="d-flex flex-column w-25 text-center m-auto">
 
-        <label for="nombre">Nombre del Producto</label>
-        <input id="nombre" name="nombre" type="text">
+        <label for="nombreProducto">Nombre del Producto</label>
+        <input id="nombreProducto" name="nombreProducto" type="text">
 
         <label for="precio">Precio</label>
-        <input id="precio" name="precio" type="text">
+        <input id="precio" name="precio" type="number" min="1" max="5">
 
         <!-- Aca iria foreach de las categorias -->
         <label for="categoria">Categoría</label>
@@ -45,15 +46,15 @@
         <input id="stock" name="stock" type="number" min="1" max="5">
 
         <label for="img">Imagen</label>
-        <input name="img" type="file">
+        <input id="img" name="img" type="file">
 
         <button class="mt-4  btn btn-dark" onclick="uploadProduct();" type="button">Subir producto</button>
 
     </form>
 
-    <script src="js/controller/insertAdmin.js"></script>
+    <script src="js/controller/insertProductos.js"></script>
     <script src="js/controller/cerrarSesion.js"></script>
-<script src="js/funciones/mostrarUsuario.js"></script>
+<script src="js/function/mostrarUsuario.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,4 @@
 /* Login panel admin 
-
-ceredenciales:
-eze@gmail.com
-test
-
 */
 
 async function loginAdmin() {
@@ -26,7 +21,6 @@ async function loginAdmin() {
 
     };
 
-    console.log(JSON.stringify(loginData))
     try {
 
         const response = await fetch('https://sea-feliz.up.railway.app/login', requestOptions);
@@ -34,7 +28,6 @@ async function loginAdmin() {
 
 
         localStorage.setItem("x-token", data.token)
-        console.log(data)
 
         if (localStorage.getItem('x-token') == data.token) {
             localStorage.setItem("userEmail", email);
@@ -46,6 +39,8 @@ async function loginAdmin() {
     }
 
     catch (error) {
+
+        document.getElementById("errorLogin").innerText = "Se ha detectado un error en el servidor, porfavor intenta denuevo mas tarde";
         console.log("Error el login pa " + error)
 
     }
