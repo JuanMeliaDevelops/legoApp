@@ -12,16 +12,17 @@
 
 <body>
 
-    <nav class="navbar bg-body-tertiary bg-warning">
-        <div class="container-fluid">
-          <a class="navbar-brand " href="#">
-            <img src="imgs/Lego_logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            Lego Panel de administrador
-          </a>
+  <nav class="navbar bg-body-tertiary bg-warning">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="#">
+        <img src="imgs/Lego_logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Lego Panel de administrador
+      </a>
 
-          <h6  class="nav-link cerrarSesion text-danger" onclick="cerrarSesion();" >Cerrar Sesión</h6>
-        </div>
-      </nav>
+      <h5 id="usuarioAdmin"> </h5>
+      <h6 class="nav-link cerrarSesion  text-danger" onclick="cerrarSesion();">Cerrar Sesión</h6>
+    </div>
+  </nav>
 
     <h3 class="text-center">Subir nuevo producto a Lego store</h3>
     <br><br>
@@ -43,11 +44,16 @@
         <label for="stock">Stock</label>
         <input id="stock" name="stock" type="number" min="1" max="5">
 
+        <label for="img">Imagen</label>
+        <input name="img" type="file">
+
         <button class="mt-4  btn btn-dark" onclick="uploadProduct();" type="button">Subir producto</button>
 
     </form>
 
-    <script src="js/"></script>
+    <script src="js/controller/insertAdmin.js"></script>
+    <script src="js/controller/cerrarSesion.js"></script>
+<script src="js/funciones/mostrarUsuario.js"></script>
 </body>
 
 </html>

@@ -15,16 +15,17 @@
     <form class="d-flex flex-column w-25 text-center m-auto">
      
         <label for="email">Email</label>
-        <input id="email" name="email" type="text">
+        <input id="email" name="email" type="text" onkeydown="enterBoton(event)">
 
         <label for="password">Contraseña</label>
-        <input id="password" name="password" type="password">
+        <input id="password" name="password" type="password" onkeydown="enterBoton(event)" >
 
-        <button class="mt-4  btn btn-dark" onclick="loginAdmin();" type="button">Iniciar Sesión</button>
+        <button id="botonFormulario" class="mt-4  btn btn-dark" onclick="loginAdmin();" type="button">Iniciar Sesión</button>
     
         <h5 id="errorLogin" class=" m-4 alert-danger" > </h5>
     </form>
     
-    <script src="js/controller/login.js"></script>
+    <script src="js/controller/loginAdmin.js"></script>}
+    <script src="js/funciones/enterBoton.js"></script>
 </body>
 </html>

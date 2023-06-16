@@ -1,38 +1,44 @@
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
-    <title>Panel de administrador Lego Store</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>Panel de administrador Lego Store</title>
 </head>
+
 <body>
 
-    <nav class="navbar bg-body-tertiary bg-warning">
-        <div class="container-fluid">
-          <a class="navbar-brand " href="#">
-            <img src="imgs/Lego_logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            Lego Panel de administrador
-          </a>
+  <nav class="navbar bg-body-tertiary bg-warning">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="#">
+        <img src="imgs/Lego_logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Lego Panel de administrador
+      </a>
 
-          <h6  class="nav-link cerrarSesion  text-danger" onclick="cerrarSesion();" >Cerrar Sesión</h6>
-        </div>
-      </nav>
-
-    <h3 class="text-center m-4">Panel de administrador Lego store</h3>
-
-    <a class="" href="adminUpload.html"><button class="d-block  m-auto  btn btn-dark" type="submit">Subir nuevo producto</button></a>
-
-    <h4 class="text-center m-5">Lista de productos</h4>
-
-    <div class="text-center row m-auto mb-5 justify-content-around" id="listaDeProductos">
-
-
+      <h5 id="usuarioAdmin"> </h5>
+      <h6 class="nav-link cerrarSesion  text-danger" onclick="cerrarSesion();">Cerrar Sesión</h6>
     </div>
+  </nav>
 
-<script src="js/apiGet.js"></script>
-<script src="js/controller/cerrarSesion.js"></script>
-    
+  <h3 class="text-center m-4">Panel de administrador Lego store</h3>
+
+  <a class="" href="adminUpload.html"><button class="d-block  m-auto  btn btn-dark" type="submit">Subir nuevo
+      producto</button></a>
+
+  <h4 class="text-center m-5">Lista de productos</h4>
+
+  <div class="text-center row m-auto mb-5 justify-content-around" id="listaDeProductos">
+
+
+  </div>
+
+  <script src="js/funciones/apiGet.js"></script>
+  <script src="js/controller/cerrarSesion.js"></script>
+<script src="js/funciones/mostrarUsuario.js"></script>
 </body>
+
 </html>
