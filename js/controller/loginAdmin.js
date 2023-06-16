@@ -37,7 +37,6 @@ async function loginAdmin() {
         console.log(data)
 
         if (localStorage.getItem('x-token') == data.token) {
-
             localStorage.setItem("userEmail", email);
             window.location.href = "adminPanel.html";
         }
