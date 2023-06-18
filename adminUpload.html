@@ -1,14 +1,14 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imgs/lego_logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="imgs/lego_logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Panel de administrador Lego Store</title>
+  <title>Panel de administrador Lego Store</title>
 </head>
 
 <body>
@@ -25,36 +25,44 @@
     </div>
   </nav>
 
-    <h3 class="text-center">Subir nuevo producto a Lego store</h3>
-    <br><br>
+  <h3 class="text-center">Subir nuevo producto a Lego store</h3>
+  <br><br>
 
-    <a class="justify-content-start nav-link text-dark" href="adminPanel.html">Volver</a>
+  <a class="justify-content-start nav-link text-dark" href="adminPanel.html">Volver</a>
 
-    <form class="d-flex flex-column w-25 text-center m-auto">
+  <form class="d-flex flex-column w-25 text-center m-auto">
 
-        <label for="nombreProducto">Nombre del Producto</label>
-        <input id="nombreProducto" name="nombreProducto" type="text">
+    <label for="nombreProducto">Nombre del Producto</label>
+    <input id="nombreProducto" name="nombreProducto" type="text">
 
-        <label for="precio">Precio</label>
-        <input id="precio" name="precio" type="number" min="1" max="5">
+    <label for="precio">Precio</label>
+    <input id="precio" name="precio" type="number" min="1" max="5">
 
-        <!-- Aca iria foreach de las categorias -->
-        <label for="categoria">Categoría</label>
-        <input id="categoria" name="categoria" type="text">
+    <label for="descripcion">Descripción</label>
+    <input id="descripcion" name="descripcion" type="text">
 
-        <label for="stock">Stock</label>
-        <input id="stock" name="stock" type="number" min="1" max="5">
+    <label for="dimensiones">Dimensiones</label>
+    <input id="dimensiones" name="dimensiones" type="text">
 
-        <label for="img">Imagen</label>
-        <input id="img" name="img" type="file">
+    <!-- Aca iria foreach de las categorias -->
+    <label for="categoria">Categoría</label>
+    <input id="categoria" name="categoria" type="text">
 
-        <button class="mt-4  btn btn-dark" onclick="uploadProduct();" type="button">Subir producto</button>
+    <label for="stock">Stock</label>
+    <input id="stock" name="stock" type="number" min="1" max="5">
 
-    </form>
+    <label for="img">Imagen</label>
+    <input id="img" name="img" type="file">
 
-    <script src="js/controller/insertProductos.js"></script>
-    <script src="js/controller/cerrarSesion.js"></script>
-<script src="js/function/mostrarUsuario.js"></script>
+    <button class="mt-4  btn btn-dark" onclick="uploadProduct();" type="button">Registrar producto</button>
+
+  </form>
+
+  <h5 id="mensajeUpload" class="alert-success text-center m-auto col-3"></h5>
+
+  <script src="js/controller/insertProductos.js"></script>
+  <script src="js/controller/cerrarSesion.js"></script>
+  <script src="js/function/mostrarUsuario.js"></script>
 </body>
 
 </html>
