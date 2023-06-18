@@ -29,7 +29,7 @@
     <script>
 
         const url = new URL(window.location.href);
-        const id = url.searchParams.get('id');
+        let id = url.searchParams.get('id');
 
         async function fetchProducto() {
             try {
@@ -70,7 +70,7 @@
 
     <h2 class="text-center" id="productoTitulo"></h2>
 
-    <h6 class="m-auto text-danger pointer text-center" onclick="deleteProduct(id);">Eliminar producto</h6>
+    <h6 class="m-auto text-danger pointer text-center" onclick="deleteProduct();">Eliminar producto</h6>
 
     <div class="text-center" id="producto">
 

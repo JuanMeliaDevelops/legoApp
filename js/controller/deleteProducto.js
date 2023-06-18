@@ -1,7 +1,8 @@
 const token = localStorage.getItem('x-token');
 console.log(token)
 
-async function deleteProduct(id) {
+async function deleteProduct() {
+
 
     const requestOptions = {
         method: 'DELETE',
@@ -16,6 +17,7 @@ async function deleteProduct(id) {
         const data = await response.json();
 
         console.log('Producto eliminado:', data);
+        window.location.href = "adminPanel.html";
 
     }
     catch (error) {
