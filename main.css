@@ -1,7 +1,14 @@
 .producto{
     height: 40%;
-    width: 33%;
+    width: 28%;
+    margin: 2%;
    
+}
+
+.producto:hover{
+    border: 1px solid gray;
+    opacity: 0.6;
+    cursor: pointer;
 }
 
 .producto img{
