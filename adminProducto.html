@@ -1,0 +1,89 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/lego_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title id="titleProducto"></title>
+</head>
+
+<body>
+
+    <nav class="navbar bg-body-tertiary bg-warning">
+        <div class="container-fluid">
+            <a class="navbar-brand " href="#">
+                <img src="imgs/Lego_logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Lego Panel de administrador
+            </a>
+
+            <h5 id="usuarioAdmin"> </h5>
+            <h6 class="nav-link pointer text-danger" onclick="cerrarSesion();">Cerrar Sesión</h6>
+        </div>
+    </nav>
+
+
+    <script>
+
+        const url = new URL(window.location.href);
+        const id = url.searchParams.get('id');
+
+        async function fetchProducto() {
+            try {
+                const response = await fetch(`https://sea-feliz.up.railway.app/api/productos/${id}`);
+                const data = await response.json();
+
+                console.log(data);
+
+                document.getElementById("titleProducto").innerText = "Admin " + data.producto.nombre;
+                document.getElementById("productoTitulo").innerText = "Detalles de: " + data.producto.nombre;
+
+                document.getElementById("producto").innerHTML = `
+    
+    <div class="producto" >  <img  src="${data.producto.img}" alt="${data.producto.nombre}">  </div> 
+    <h3>${data.producto.nombre}</h3>
+    <p>Precio: $${data.producto.precio}</p>
+    <p>Descripción: ${data.producto.descripcion}</p>
+    <p>Dimensiones: ${data.producto.dimensiones}</p>
+    <p>Categoria: ${data.producto.categoria}</p>
+    <p>Stock: ${data.producto.stock}</p>
+    
+    `;
+
+            }
+
+            catch {
+
+                console.log("Error ", error);
+
+
+            }
+        }
+
+        fetchProducto();
+
+    </script>
+    <a class="justify-content-start nav-link text-dark" href="adminPanel.html">Volver</a>
+
+    <h2 class="text-center" id="productoTitulo"></h2>
+
+    <h6 class="m-auto text-danger pointer text-center" onclick="deleteProduct(id);">Eliminar producto</h6>
+
+    <div class="text-center" id="producto">
+
+    </div>
+
+
+
+
+    <script src="js/controller/cerrarSesion.js"></script>
+    <script src="js/function/mostrarUsuario.js"></script>
+    <script src="js/controller/deleteProducto.js"></script>
+
+
+</body>
+
+</html>

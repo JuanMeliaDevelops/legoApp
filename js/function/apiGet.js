@@ -1,4 +1,3 @@
-
 /* GET DE API */
 
 async function fetchApi() {
@@ -14,12 +13,17 @@ async function fetchApi() {
       productoItem.classList.add("producto");
 
       // Utilizar un template HTML
+
+
       productoItem.innerHTML = `
-          <img  src="${producto.img}" alt="${producto.nombre}">
-          <h3>${producto.nombre}</h3>
-          <p>Precio: $${producto.precio}</p>
-          <p>Categoria: ${producto.categoria}</p>
-          <p>Stock: ${producto.stock}</p>
+      <a href="producto.html?id=${producto.id}"> 
+      <div class="productoImagen" >  <img  src="${producto.img}" alt="${producto.nombre}">  </div> 
+      <h3>${producto.nombre}</h3>
+      <p>Precio: $${producto.precio}</p>
+      <p>Categoria: ${producto.categoria}</p>
+      <p>Stock: ${producto.stock}</p>
+      </a>
+      
           `;
 
       listaDeProductos.appendChild(productoItem);
