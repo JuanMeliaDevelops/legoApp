@@ -28,8 +28,7 @@
 
     <script>
 
-        const url = new URL(window.location.href);
-        let id = url.searchParams.get('id');
+        let id = new URL(window.location.href).searchParams.get('id');
 
         async function fetchProducto() {
             try {
@@ -41,48 +40,97 @@
                 document.getElementById("titleProducto").innerText = "Admin " + data.producto.nombre;
                 document.getElementById("productoTitulo").innerText = "Detalles de: " + data.producto.nombre;
 
-                document.getElementById("producto").innerHTML = `
-    
-    <div class="producto" >  <img  src="${data.producto.img}" alt="${data.producto.nombre}">  </div> 
-    <h3>${data.producto.nombre}</h3>
-    <p>Precio: $${data.producto.precio}</p>
-    <p>Descripción: ${data.producto.descripcion}</p>
-    <p>Dimensiones: ${data.producto.dimensiones}</p>
-    <p>Categoria: ${data.producto.categoria}</p>
-    <p>Stock: ${data.producto.stock}</p>
-    
-    `;
+                document.getElementById("productoContainer").innerHTML = `
 
+                <div class="text-center m-auto col-6" id="producto">
+
+
+    
+    <div class="" >  <img id="imagenDom" class="img-fluid" src="${data.producto.img}" alt="${data.producto.nombre}">  </div> 
+
+</div>
+    
+    <div class="col-6 text-center">
+
+<form class="d-flex flex-column w-50 text-center m-auto">   
+
+    <label for="nombreProducto" >Nombre del Producto</label>
+    <input id="nombreProducto" value="${data.producto.nombre}" name="nombreProducto" type="text">
+
+    <label for="precio">Precio</label>
+    <input id="precio" value="${data.producto.precio}" name="precio" type="number" min="1" max="5">
+
+    <label for="descripcion">Descripción</label>
+    <input id="descripcion" value="${data.producto.descripcion}" name="descripcion" type="text">
+
+    <label for="dimensiones">Dimensiones</label>
+    <input id="dimensiones" value="${data.producto.dimensiones}" name="dimensiones" type="text">
+
+    <!-- Aca iria foreach de las categorias -->
+    <label for="categoria">Categoría</label>
+    <input id="categoria" value="${data.producto.categoria}" name="categoria" type="text">
+
+    <label for="stock">Stock</label>
+    <input id="stock" value="${data.producto.stock}" name="stock" type="number" min="1" max="5">
+
+    
+    <label id="dropZone" class="dropArea justify-content-center text-center mt-5 mr-auto ml-auto" for="img">
+        <div class="col-4 m-auto">
+          <img id="imagenInputFile" class="img-fluid" src="imgs/icons/fileUpload.png" alt="">
+        </div>
+        <div class="text">
+          <span>Arrastrar imagen <br> o</span>
+        </div>
+        <button type="button" class="btn btn-dark ">Seleccionar archivo</button>
+        <input id="img"  name="img" type="file">
+      </label>  
+
+    <button class="mt-4  btn btn-dark" onclick="updateProduct();" type="button">Modificar producto</button>
+
+
+
+  </form>
+
+  <h5 id="mensajeUpdate" class="alert-success text-center m-auto mt-2 col-3"></h5>
+
+</div>
+
+
+    `;
             }
 
             catch {
-
                 console.log("Error ", error);
-
-
             }
         }
 
         fetchProducto();
 
     </script>
+
+
     <a class="justify-content-start nav-link text-dark" href="adminPanel.html">Volver</a>
 
     <h2 class="text-center" id="productoTitulo"></h2>
 
-    <h6 class="m-auto text-danger pointer text-center" onclick="deleteProduct();">Eliminar producto</h6>
+    <h6 class="mt-5 m-auto text-danger pointer text-center" onclick="deleteProduct();">Eliminar producto</h6>
 
-    <div class="text-center" id="producto">
-
-    </div>
+    <section id="productoContainer" class="mt-5 mb-5 container-fluid row text-center justify-content-center align-content-center">
 
 
 
 
+
+    </section>
+
+
+
+    <script src="js/controller/deleteProducto.js"></script>
+    <script src="js/controller/updateProducto.js"></script>
+    <script src="js/function/fileDragAndDrop.js"></script>
     <script src="js/controller/cerrarSesion.js"></script>
     <script src="js/function/mostrarUsuario.js"></script>
-    <script src="js/controller/deleteProducto.js"></script>
-
+    
 
 </body>
 

@@ -16,8 +16,7 @@
 
     <script>
 
-        const url = new URL(window.location.href);
-        const id = url.searchParams.get('id');
+        let id = new URL(window.location.href).searchParams.get('id');
 
         async function fetchProducto() {
             try {

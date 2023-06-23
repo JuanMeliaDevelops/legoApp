@@ -1,7 +1,8 @@
-const token = localStorage.getItem('x-token');
-console.log(token)
 
-async function uploadProduct() {
+
+async function updateProduct() {
+
+    const token = localStorage.getItem('x-token');
 
     let nombreProducto = document.getElementById("nombreProducto").value;
     let precio = document.getElementById("precio").value;
@@ -10,7 +11,6 @@ async function uploadProduct() {
     let categoria = document.getElementById("categoria").value;
     let stock = document.getElementById("stock").value;
     let img = document.getElementById("img").files[0];
-
 
     const formData = new FormData();
     formData.append("img", img);
@@ -21,12 +21,12 @@ async function uploadProduct() {
     formData.append("precio", precio);
     formData.append("descripcion", descripcion);
 
-
     console.log(formData);
 
-    
+
     /* loader */
-    document.getElementById("subirProductos").innerHTML = `
+
+    document.getElementById("productoContainer").innerHTML = `
         
     <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
 <div class="wheel"></div>
@@ -50,28 +50,30 @@ async function uploadProduct() {
 
 
 
-
-
     const requestOptions = {
-        method: "POST",
+        method: "PUT",
         body: formData,
         headers: {
             "x-token": token,
         },
     };
+
+
+
+
     try {
 
-        const response = await fetch('https://sea-feliz.up.railway.app/api/productos', requestOptions);
+        const response = await fetch(`https://sea-feliz.up.railway.app/api/productos/${id}`, requestOptions);
         const data = await response.json();
 
-        console.log("Se esta intentando subir el producto.  ", data)
+        console.log("Se esta intentando modificar el producto.  ", data)
 
-        if (data.msg == "Producto guardado") {
-           
-            document.getElementById("subirProductos").innerHTML = `
+        if (data.msg == "Producto actualizado") {
+            /*    document.getElementById("mensajeUpdate").innerText = "El producto se modificó correctamente!"; */
+
+            document.getElementById("productoContainer").innerHTML = `
          <h5 id="mensajeUpdate" class="alert-success text-center m-auto mt-2 col-3">El producto se modificó correctamente!</h5>
          `;
-
             setTimeout(() => {
                 window.location.href = "adminPanel.html";
             }, 3000);
@@ -82,8 +84,10 @@ async function uploadProduct() {
     }
 
     catch (error) {
-        console.log("Error el subiendo un nuevo producto  ", error)
+        console.log("Error modificando el producto  ", error)
 
     }
+
+
 
 }

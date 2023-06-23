@@ -25,41 +25,59 @@
     </div>
   </nav>
 
-  <h3 class="text-center">Subir nuevo producto a Lego store</h3>
+  <h3 class="text-center mt-5">Subir nuevo producto a Lego store</h3>
+
   <br><br>
 
-  <a class="justify-content-start nav-link text-dark" href="adminPanel.html">Volver</a>
+  <section id="subirProductos" class="text-center m-auto ">
+    <a class="justify-content-start nav-link text-dark" href="adminPanel.html">Volver</a>
 
-  <form class="d-flex flex-column w-25 text-center m-auto">
+    <section class="container-fluid mb-5">
+      <form class="d-flex flex-column w-25 text-center m-auto">
 
-    <label for="nombreProducto">Nombre del Producto</label>
-    <input id="nombreProducto" name="nombreProducto" type="text">
+        <label for="nombreProducto">Nombre del Producto</label>
+        <input id="nombreProducto" name="nombreProducto" type="text">
 
-    <label for="precio">Precio</label>
-    <input id="precio" name="precio" type="number" min="1" max="5">
+        <label for="precio">Precio</label>
+        <input id="precio" name="precio" type="number" min="1" max="5">
 
-    <label for="descripcion">Descripción</label>
-    <input id="descripcion" name="descripcion" type="text">
+        <label for="descripcion">Descripción</label>
+        <input id="descripcion" name="descripcion" type="text">
 
-    <label for="dimensiones">Dimensiones</label>
-    <input id="dimensiones" name="dimensiones" type="text">
+        <label for="dimensiones">Dimensiones</label>
+        <input id="dimensiones" name="dimensiones" type="text">
 
-    <!-- Aca iria foreach de las categorias -->
-    <label for="categoria">Categoría</label>
-    <input id="categoria" name="categoria" type="text">
+        <!-- Aca iria foreach de las categorias -->
+        <label for="categoria">Categoría</label>
+        <input id="categoria" name="categoria" type="text">
 
-    <label for="stock">Stock</label>
-    <input id="stock" name="stock" type="number" min="1" max="5">
+        <label for="stock">Stock</label>
+        <input id="stock" name="stock" type="number" min="1" max="5">
 
-    <label for="img">Imagen</label>
-    <input id="img" name="img" type="file">
 
-    <button class="mt-4  btn btn-dark" onclick="uploadProduct();" type="button">Registrar producto</button>
 
-  </form>
+        <label id="dropZone" class="dropArea justify-content-center text-center mt-5 mr-auto ml-auto" for="img">
+          <div class="col-4 m-auto">
+            <img id="imagenInputFile" class="img-fluid" src="imgs/icons/fileUpload.png" alt="">
+          </div>
+          <div class="text">
+            <span>Arrastrar imagen <br> o</span>
+          </div>
+          <button type="button" class="btn btn-dark ">Seleccionar archivo</button>
+          <input id="img" name="img" type="file">
+        </label>
 
-  <h5 id="mensajeUpload" class="alert-success text-center m-auto mt-2 col-3"></h5>
+        <button class="mt-4  btn btn-dark" onclick="uploadProduct();" type="button">Registrar producto</button>
 
+      </form>
+
+      <h5 id="mensajeUpload" class="alert-success text-center m-auto mt-2 col-3"></h5>
+
+    </section>
+
+  </section>
+
+  <script src="js/function/fileDragAndDrop.js"></script>
   <script src="js/controller/insertProducto.js"></script>
   <script src="js/controller/cerrarSesion.js"></script>
   <script src="js/function/mostrarUsuario.js"></script>
